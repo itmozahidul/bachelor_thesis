@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<body>
+<div >
+<form enctype = "multipart/form-data" action = "add" method = "POST">{% csrf_token %}
+ <p>File: <input type = "file" name = "fname" value=" "/></p><p><input type = "submit" value = "Train" /></p>
+    <p>Files</p>
+ {% for l in files%}
+
+    <ul>
+
+        <li>
+            <a href={{l.url}}>{{l.name}}</a>
+        </li>
+
+    </ul>
+{% endfor %}
+</form>
+</div>
+
+<div>
+<form enctype = "multipart/form-data" action = "evaluate" method = "POST">{% csrf_token %}
+ <p>File: <input type = "file" name = "fnameE" value=" "/></p><p><input type = "submit" value = "evaluate" /></p>
+</form>
+<form action="evaluate">
+    <input type="text" name="text">
+    <input type="submit" value="evaluate">
+
+</form>
+</div>
+<div>
+    <form>
+        <textarea>
+
+        </textarea>
+    </form>
+</div>
+</body>
+</html>
